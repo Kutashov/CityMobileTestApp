@@ -30,7 +30,16 @@ class MovingCarView @JvmOverloads constructor(
     private val animationTimeInterpolator = LinearInterpolator()
 
     private var dest: DestinationPoint? = null
-    private val car = Car()
+    private val car: Car
+
+    init {
+        val ta = getContext().obtainStyledAttributes(attrs, R.styleable.MovingCarView)
+        val forwardSpeed = ta.getInt(R.styleable.MovingCarView_forwardSpeed, Car.FORWARD_SPEED_DEFAULT)
+        val turningSpeed = ta.getInt(R.styleable.MovingCarView_turningSpeed, Car.TURNING_SPEED_DEFAULT)
+        ta.recycle()
+
+        car = Car(forwardSpeed, turningSpeed)
+    }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)

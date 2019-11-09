@@ -14,6 +14,8 @@ import kotlin.math.sin
 class Car(val forwardSpeed: Int = 15, val turningSpeed: Int = 5) : Drawable {
 
     companion object {
+        const val FORWARD_SPEED_DEFAULT = 15
+        const val TURNING_SPEED_DEFAULT = 5
         private const val CAR_WIDTH = 100
         private const val CAR_LENGTH = 200
     }
