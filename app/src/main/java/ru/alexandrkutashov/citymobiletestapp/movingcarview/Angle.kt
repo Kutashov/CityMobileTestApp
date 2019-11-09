@@ -1,4 +1,4 @@
-package ru.alexandrkutashov.citymobiletestapp
+package ru.alexandrkutashov.citymobiletestapp.movingcarview
 
 import kotlin.math.acos
 import kotlin.math.pow
@@ -40,5 +40,10 @@ fun getAngleBetweenVectors(x1: Double, y1: Double, x2: Double, y2: Double): Angl
 }
 
 fun getAngleBetweenVectors(x1: Float, y1: Float, x2: Float, y2: Float): Angle {
-    return getAngleBetweenVectors(x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble())
+    return getAngleBetweenVectors(
+        x1.toDouble(),
+        y1.toDouble(),
+        x2.toDouble(),
+        y2.toDouble()
+    )
 }

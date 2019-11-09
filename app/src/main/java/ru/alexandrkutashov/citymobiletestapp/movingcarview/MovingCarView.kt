@@ -1,4 +1,4 @@
-package ru.alexandrkutashov.citymobiletestapp
+package ru.alexandrkutashov.citymobiletestapp.movingcarview
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.core.animation.doOnEnd
+import ru.alexandrkutashov.citymobiletestapp.R
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
@@ -33,9 +34,17 @@ class MovingCarView @JvmOverloads constructor(
     private val car: Car
 
     init {
-        val ta = getContext().obtainStyledAttributes(attrs, R.styleable.MovingCarView)
-        val forwardSpeed = ta.getInt(R.styleable.MovingCarView_forwardSpeed, Car.FORWARD_SPEED_DEFAULT)
-        val turningSpeed = ta.getInt(R.styleable.MovingCarView_turningSpeed, Car.TURNING_SPEED_DEFAULT)
+        val ta = getContext().obtainStyledAttributes(attrs,
+            R.styleable.MovingCarView
+        )
+        val forwardSpeed = ta.getInt(
+            R.styleable.MovingCarView_forwardSpeed,
+            Car.FORWARD_SPEED_DEFAULT
+        )
+        val turningSpeed = ta.getInt(
+            R.styleable.MovingCarView_turningSpeed,
+            Car.TURNING_SPEED_DEFAULT
+        )
         ta.recycle()
 
         car = Car(forwardSpeed, turningSpeed)
@@ -76,17 +85,21 @@ class MovingCarView @JvmOverloads constructor(
         val frontPoint = car.frontPoint
         Log.d(TAG, "curr point: $frontPoint, moveTo $target")
 
-        val angleToDestination = getAngleBetweenVectors(
-            frontPoint.x - car.x, frontPoint.y - car.y,
-            target.x - car.x, target.y - car.y
-        )
+        val angleToDestination =
+            getAngleBetweenVectors(
+                frontPoint.x - car.x, frontPoint.y - car.y,
+                target.x - car.x, target.y - car.y
+            )
         Log.d(TAG, "angle to destination: $angleToDestination")
 
         val forwardAnimation = getForwardAnimation(target)
 
         val turningAnimation = getTurningAnimation(angleToDestination)
 
-        dest = DestinationPoint(target, listOf(turningAnimation, forwardAnimation))
+        dest = DestinationPoint(
+            target,
+            listOf(turningAnimation, forwardAnimation)
+        )
     }
 
     private fun getTurningAnimation(angleToDestination: Angle): Lazy<ValueAnimator> = lazy {

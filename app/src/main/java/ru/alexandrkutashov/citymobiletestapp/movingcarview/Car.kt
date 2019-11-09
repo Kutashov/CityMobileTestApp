@@ -1,4 +1,4 @@
-package ru.alexandrkutashov.citymobiletestapp
+package ru.alexandrkutashov.citymobiletestapp.movingcarview
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -49,7 +49,7 @@ class Car(val forwardSpeed: Int = 15, val turningSpeed: Int = 5) : Drawable {
         this.y = y
     }
 
-    fun moveBy(dx: Float, dy: Float){
+    fun moveBy(dx: Float, dy: Float) {
         x += dx
         y += dy
     }

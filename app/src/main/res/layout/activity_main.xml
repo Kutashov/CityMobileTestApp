@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ru.alexandrkutashov.citymobiletestapp.MovingCarView
+    <ru.alexandrkutashov.citymobiletestapp.movingcarview.MovingCarView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:forwardSpeed="40"

@@ -1,4 +1,4 @@
-package ru.alexandrkutashov.citymobiletestapp
+package ru.alexandrkutashov.citymobiletestapp.movingcarview
 
 import android.graphics.Canvas
 

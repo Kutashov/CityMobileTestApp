@@ -1,4 +1,4 @@
-package ru.alexandrkutashov.citymobiletestapp
+package ru.alexandrkutashov.citymobiletestapp.movingcarview
 
 import android.animation.Animator
 import android.animation.ValueAnimator
