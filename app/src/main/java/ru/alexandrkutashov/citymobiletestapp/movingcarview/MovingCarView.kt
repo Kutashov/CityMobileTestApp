@@ -76,7 +76,7 @@ class MovingCarView @JvmOverloads constructor(
     }
 
     private fun moveTo(target: Point) {
-        if (target == dest?.point ?: false) {
+        if (target isNear dest?.point) {
             return
         }
 

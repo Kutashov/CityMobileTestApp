@@ -54,7 +54,7 @@ data class Point(val x: Float, val y: Float) : Drawable {
         canvas.drawCircle(x, y, radius, style)
     }
 
-    override fun equals(other: Any?): Boolean {
+    infix fun isNear(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Point) return false
 
